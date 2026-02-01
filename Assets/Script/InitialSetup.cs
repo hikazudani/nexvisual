@@ -1,13 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.XR.ARFoundation;
 
 public class NewBehaviourScript : MonoBehaviour
 {
 
-    [SerializedField] private float requiredArea;
-    [SerializedField] private ARPlaneManager planeManager;
-    [SerializedField] private GameObject startExperienceUI;
+    [SerializeField] private float requiredArea;
+    [SerializeField] private ARPlaneManager planeManager;
+    [SerializeField] private GameObject startExperienceUI;
 
     // Start is called before the first frame update
     void Start()
