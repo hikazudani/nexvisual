@@ -399,7 +399,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   requiredArea: 1
   planeManager: {fileID: 151853166}
-  startExperienceUI: {fileID: 0}
+  startExperienceUI: {fileID: 1233513125}
 --- !u!4 &1029971777
 Transform:
   m_ObjectHideFlags: 0
@@ -645,6 +645,11 @@ PrefabInstance:
 --- !u!224 &1233513124 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 6235513300977795393, guid: 063cc896506b947c7b2c2ae3beb5868f, type: 3}
+  m_PrefabInstance: {fileID: 1233513123}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1233513125 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1579366325745436317, guid: 063cc896506b947c7b2c2ae3beb5868f, type: 3}
   m_PrefabInstance: {fileID: 1233513123}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1323550131
