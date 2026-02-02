@@ -9,6 +9,7 @@ public class InitialSetup : MonoBehaviour
     [SerializeField] private float requiredArea;
     [SerializeField] private ARPlaneManager planeManager;
     [SerializeField] private GameObject startExperienceUI;
+    [SerializeField] private StartExperience startExperience;
 
     void OnEnable()
     {
@@ -24,13 +25,20 @@ public class InitialSetup : MonoBehaviour
     public void OnClickStartExperience()
     {
         Debug.Log("Initializing the AR Experience...");
-        startExperienceUI.SetActive(false);
-        planeManager.enabled = false;
 
+        ARPlane targetPlane = GetBiggestPlane();
+
+        if (targetPlane != null)
+        {
+            startExperience.OnStartExperience(targetPlane);
+        }
+        
         foreach (var plane in planeManager.trackables)
         {
             plane.gameObject.SetActive(false);
         }
+        planeManager.enabled = false;
+        startExperienceUI.SetActive(false);
     }
 
     private void OnPlanesUpdated(ARPlanesChangedEventArgs args)
@@ -43,5 +51,22 @@ public class InitialSetup : MonoBehaviour
                 startExperienceUI.SetActive(true);
             }
         }
+    }
+
+    private ARPlane GetBiggestPlane()
+    {
+        ARPlane biggestPlane = null;
+        float biggestArea = 0f;
+
+        foreach (var plane in planeManager.trackables)
+        {
+            float area = plane.extents.x * plane.extents.y;
+            if(area > biggestArea)
+            {
+                biggestArea = area;
+                biggestPlane = plane;
+            }
+        }
+        return biggestPlane;
     }
 }
